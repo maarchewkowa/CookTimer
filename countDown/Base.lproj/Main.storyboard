@@ -66,7 +66,7 @@
                                 <rect key="frame" x="14" y="442" width="347" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="slider:" destination="BYZ-38-t0r" eventType="valueChanged" id="lxY-WU-Svk"/>
+                                    <action selector="slider2:" destination="BYZ-38-t0r" eventType="valueChanged" id="SsJ-dG-15o"/>
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhB-Ha-8dv">
@@ -75,7 +75,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="START"/>
                                 <connections>
-                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8yj-6h-0TR"/>
+                                    <action selector="start2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XSX-Ao-xdo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkg-d8-L9y">
@@ -86,17 +86,21 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ggt-hm-TmE"/>
+                                    <action selector="stop2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uW1-3z-EWs"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="label" destination="Tku-4J-wmk" id="JFT-mf-fNc"/>
-                        <outlet property="sliderOutlet" destination="REQ-V7-zQa" id="QFg-7v-1GK"/>
-                        <outlet property="startOutlet" destination="DhB-Ha-8dv" id="ZhA-Ft-3Qv"/>
-                        <outlet property="stopOutlet" destination="mkg-d8-L9y" id="jS1-rv-LJN"/>
+                        <outlet property="label" destination="wvk-3X-jY2" id="ngI-rt-eXA"/>
+                        <outlet property="label2" destination="Tku-4J-wmk" id="rJx-F3-LJW"/>
+                        <outlet property="sliderOutlet" destination="H3h-vY-AuZ" id="VYb-ap-fss"/>
+                        <outlet property="sliderOutlet2" destination="REQ-V7-zQa" id="9Z9-Mg-g3j"/>
+                        <outlet property="startOutlet" destination="u4y-eQ-P61" id="THR-FI-aXF"/>
+                        <outlet property="startOutlet2" destination="DhB-Ha-8dv" id="U4P-Xn-ALs"/>
+                        <outlet property="stopOutlet" destination="ase-re-G1z" id="uFm-DL-eXt"/>
+                        <outlet property="stopOutlet2" destination="mkg-d8-L9y" id="IUR-Je-X3L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
