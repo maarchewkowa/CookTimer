@@ -25,28 +25,53 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     var timer = Timer()
     var counter = 0
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var okButton: UIButton!
+    
     @IBAction func okButtonPushed(_ sender: Any) {
-        timePicker.isHidden = false
-        toolBar.isHidden = false
-        
-        
+        if counter <= 0 {
+            timePicker.isHidden = false
+            toolBar.isHidden = false
+        } else {
+            resetTimer()
+        }
     }
-    @objc func timeSelected (_ sender: UIBarButtonItem!) -> Void {
+    func resetTimer() {
+        counter = 0
+        timer.invalidate()
+        okButton.setTitle("USTAW", for: .normal)
+        timeLabel.isHidden = true
+    }
+    @objc func timeSelected (_ sender: UIBarButtonItem!) {
+        timeLabel.textColor = .black
         counter = timePicker.selectedRow(inComponent: 0) * 60 + timePicker.selectedRow(inComponent: 1)
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             if (self.counter <= 0) {
+                self.okButton.setTitle("USTAW", for: .normal)
+                self.timeLabel.text = "CZAS MINĄŁ"
+                self.timeLabel.textColor = .red
                 print("Done")
                 timer.invalidate()
             } else {
-                print(self.counter)
                 self.counter -= 1
+                self.updateLabel(seconds: self.counter)
+                print(self.counter)
             }
         })
+        self.okButton.setTitle("STOP", for: .normal)
+        timeLabel.isHidden = false
         timePicker.isHidden = true
         toolBar.isHidden = true
+        updateLabel(seconds: counter)
+
     }
     
+    func updateLabel (seconds: Int){
+        timeLabel.text = "\(String(format: "%02d", seconds / 60)) : \(String(format: "%02d", seconds % 60))"
+    }
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.okButton.setTitle("USTAW", for: .normal)
         timePicker = UIPickerView(frame: CGRect(x: 0, y: 200, width: view.frame.width, height: 300))
         timePicker.backgroundColor = .white
         
@@ -73,7 +98,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
 //        textField1.inputView = timePicker
 //        textField1.inputAccessoryView = toolBar
-        super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
