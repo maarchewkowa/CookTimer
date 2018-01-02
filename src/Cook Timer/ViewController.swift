@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AudioToolbox
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var timePicker: UIPickerView!
@@ -50,6 +52,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 self.timeLabel.text = "CZAS MINĄŁ"
                 self.timeLabel.textColor = .red
                 print("Done")
+                AudioServicesPlayAlertSound(SystemSoundID(1304))
+                let alertController = UIAlertController(title: "CZAS MINĄŁ", message: "Czas odcedzić makaron", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                super.present(alertController, animated: true, completion: nil)
                 timer.invalidate()
             } else {
                 self.counter -= 1
