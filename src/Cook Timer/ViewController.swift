@@ -70,6 +70,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         updateLabel(seconds: counter)
 
     }
+    @objc func closeTimePicker(_ sender: UIBarButtonItem!){
+        timePicker.isHidden = true
+        toolBar.isHidden = true
+    }
     
     func updateLabel (seconds: Int){
         timeLabel.text = "\(String(format: "%02d", seconds / 60)) : \(String(format: "%02d", seconds % 60))"
@@ -85,6 +89,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         timePicker.delegate = self
         timePicker.dataSource = self
         timePicker.isHidden = true
+        timePicker.setPickerLabels(labels: [0 : "min", 1 : "sek"], containedView: self.view)
         
         toolBar = UIToolbar(frame: CGRect(x: 0, y: timePicker.frame.origin.y - 50, width: view.frame.width, height: 50))
         toolBar.isHidden = true
@@ -94,7 +99,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector (ViewController.timeSelected(_:)))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: "donePicker")
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector (ViewController.closeTimePicker(_:)))
         
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
