@@ -13,6 +13,8 @@ import AudioToolbox
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var timePicker: UIPickerView!
     var toolBar: UIToolbar!
+    var doneButton: UIBarButtonItem!
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
@@ -22,6 +24,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(row)
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        counter = timePicker.selectedRow(inComponent: 0) * 60 + timePicker.selectedRow(inComponent: 1)
+        
+        if counter == 0 {
+            doneButton.isEnabled = false
+        } else {
+            doneButton.isEnabled = true
+        }
     }
     
     var timer = Timer()
@@ -45,7 +56,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     @objc func timeSelected (_ sender: UIBarButtonItem!) {
         timeLabel.textColor = .black
-        counter = timePicker.selectedRow(inComponent: 0) * 60 + timePicker.selectedRow(inComponent: 1)
+        //counter = timePicker.selectedRow(inComponent: 0) * 60 + timePicker.selectedRow(inComponent: 1)
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             if (self.counter <= 0) {
                 self.okButton.setTitle("USTAW", for: .normal)
@@ -97,7 +108,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector (ViewController.timeSelected(_:)))
+        doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector (ViewController.timeSelected(_:)))
+        doneButton.isEnabled = false
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector (ViewController.closeTimePicker(_:)))
         
@@ -106,9 +118,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.view.addSubview(toolBar)
         self.view.addSubview(timePicker)
-        
-//        textField1.inputView = timePicker
-//        textField1.inputAccessoryView = toolBar
         // Do any additional setup after loading the view, typically from a nib.
     }
 
