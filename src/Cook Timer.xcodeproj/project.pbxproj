@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		33B4E6691FFC122E001EFB89 /* UIPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E6681FFC122E001EFB89 /* UIPickerExtension.swift */; };
+		33B4E66B1FFD4CC4001EFB89 /* TimerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B4E66A1FFD4CC4001EFB89 /* TimerControl.swift */; };
 		33E329931FF962CA00A03D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E329921FF962CA00A03D3A /* AppDelegate.swift */; };
 		33E329951FF962CA00A03D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E329941FF962CA00A03D3A /* ViewController.swift */; };
 		33E329981FF962CA00A03D3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33E329961FF962CA00A03D3A /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		33B4E6681FFC122E001EFB89 /* UIPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerExtension.swift; sourceTree = "<group>"; };
+		33B4E66A1FFD4CC4001EFB89 /* TimerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControl.swift; sourceTree = "<group>"; };
 		33E3298F1FF962CA00A03D3A /* Cook Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cook Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E329921FF962CA00A03D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33E329941FF962CA00A03D3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				33E3299B1FF962CA00A03D3A /* LaunchScreen.storyboard */,
 				33E3299E1FF962CA00A03D3A /* Info.plist */,
 				33B4E6681FFC122E001EFB89 /* UIPickerExtension.swift */,
+				33B4E66A1FFD4CC4001EFB89 /* TimerControl.swift */,
 			);
 			path = "Cook Timer";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				33E329951FF962CA00A03D3A /* ViewController.swift in Sources */,
 				33E329931FF962CA00A03D3A /* AppDelegate.swift in Sources */,
 				33B4E6691FFC122E001EFB89 /* UIPickerExtension.swift in Sources */,
+				33B4E66B1FFD4CC4001EFB89 /* TimerControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
